@@ -43,11 +43,14 @@ public class GuessTheNumberController implements Initializable {
 
     @FXML
     public void checkGuess(ActionEvent actionEvent) {
+        //проверка на отсутствие символов и букв в поле
         if (guess.getText().matches("-?[\\d]+")) {
             try {
+                //проверка на отсутствие пустого поля
                 if (guess != null && (guess.getText().equals(""))) {
-                    System.out.println("Введите число");
+                    System.out.println("Введите число"); // вывод в консоль (для проверки)
                 } else {
+                    // проверка на равенство введенного числа с randomNumber
                     if (Integer.parseInt(guess.getText()) == randomNumber) {
                         downArrow.setVisible(false);
                         upArrow.setVisible(false);
@@ -78,6 +81,7 @@ public class GuessTheNumberController implements Initializable {
         } else isItNumber();
     }
 
+    //сброс результатов - начать новую игру
     public void reset() {
         randomNumber = new Random().nextInt(10);
         downArrow.setVisible(false);
@@ -89,6 +93,7 @@ public class GuessTheNumberController implements Initializable {
         guessedText.setText("");
     }
 
+    // метод, возвращающий предупреждение при вводе НЕ цифры
     private boolean isItNumber() {
         final Alert alert = new Alert(Alert.AlertType.ERROR, "Вы ввели не цифру",
                 new ButtonType("Вернуться", ButtonBar.ButtonData.APPLY));
@@ -96,6 +101,8 @@ public class GuessTheNumberController implements Initializable {
         return buttonType.getButtonData() == ButtonBar.ButtonData.APPLY;
     }
 
+    //метод, вызывающий уведомление с 2мя кнопками
+    // еще не доработан
     private boolean isPlayerWantsToPlayAgain() {
         final Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                 "Поздравляю, вы выиграли!!!\n" +
@@ -107,7 +114,7 @@ public class GuessTheNumberController implements Initializable {
         return buttonType.getButtonData() == ButtonBar.ButtonData.YES;
     }
 
-
+    // выход из игры
     public void onExitSelect(ActionEvent actionEvent) {
         System.exit(0);
     }
