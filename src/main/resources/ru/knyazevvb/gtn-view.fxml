@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #ffffff;"
+            xmlns="http://javafx.com/fxml" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.knyazevvb.GuessTheNumberController">
+
+    <MenuBar>
+        <Menu text="Настройки">
+            <MenuItem  text="Начать новую игру" onAction="#reset"/>
+            <MenuItem text="Выйти" onAction="#onExitSelect"/>
+        </Menu>
+    </MenuBar>
+
+    <children>
+
+        <TextField fx:id="guess" layoutX="100.0" layoutY="168.0" onAction="#checkGuess" prefHeight="50" prefWidth="300"
+                   promptText="Введите число">
+            <font>
+                <Font name="System Bold" size="35"/>
+            </font>
+        </TextField>
+
+        <Button layoutX="410" layoutY="178" mnemonicParsing="false" onAction="#checkGuess" prefHeight="50" prefWidth="100"
+                text="Проверить"/>
+
+        <Text layoutX="123" layoutY="137" strokeType="OUTSIDE" strokeWidth="0" text="Введите число от 0 до 9">
+            <font>
+                <Font size="30"/>
+            </font>
+        </Text>
+
+        <Text layoutX="150" layoutY="66" strokeType="OUTSIDE" strokeWidth="0" text="Игра угадай число">
+            <font>
+                <Font name="System Bold" size="30"/>
+            </font>
+        </Text>
+
+        <ImageView fx:id="upArrow" fitHeight="150" fitWidth="150" layoutX="200" layoutY="250" pickOnBounds="true"
+                   smooth="false" rotate="180">
+            <image>
+                <Image url="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/56305/down-arrow-emoji-clipart-md.png"/>
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="downArrow" fitHeight="150" fitWidth="150" layoutX="200" layoutY="250" pickOnBounds="true"
+                   smooth="false">
+            <image>
+                <Image url="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/56305/down-arrow-emoji-clipart-md.png"/>
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="youGuess" fitHeight="150" fitWidth="150" layoutX="225" layoutY="250" pickOnBounds="true"
+                   smooth="false">
+            <image>
+                <Image url="http://risovach.ru/upload/2013/10/mem/derzkij-kote_33229596_orig_.jpg"/>
+            </image>
+        </ImageView>
+
+        <Text fx:id="guessedText" layoutX="200" layoutY="260" strokeType="OUTSIDE" strokeWidth="0"/>
+
+        <Button layoutX="31" layoutY="450" mnemonicParsing="false" onAction="#reset" prefHeight="30" prefWidth="100"
+                text="Сбросить"/>
+        <Text fx:id="guessCounterText" layoutX="150" layoutY="430" strokeType="OUTSIDE" strokeWidth="0"
+              text="Количество попыток: 0">
+            <font>
+                <Font size="20"/>
+            </font>
+        </Text>
+    </children>
+
+</AnchorPane>
