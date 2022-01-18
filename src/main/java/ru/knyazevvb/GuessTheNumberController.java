@@ -107,7 +107,6 @@ public class GuessTheNumberController implements Initializable {
         return buttonType.getButtonData() == ButtonBar.ButtonData.YES;
     }
 
-
     public void onExitSelect(ActionEvent actionEvent) {
         System.exit(0);
     }
